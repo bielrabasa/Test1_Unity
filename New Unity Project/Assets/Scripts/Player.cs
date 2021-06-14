@@ -4,18 +4,51 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    bool canjump;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(input.Get)
+        // Start is called before the first frame update
 
-            gameObject.GetComponent<Transform>().position = new Vector3(gameObject.GetComponent<Transform>().position.x + 1f * Time.deltaTime, gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
-        gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
+
+        // Update is called once per frame
+
+        if (Input.GetKey("a"))
+        {
+            gameObject.transform.Translate(-50f * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey("d"))
+        {
+            gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
+        }
+        ManageJump();
+    }
+    void ManageJump()
+    {
+        if (gameObject.transform.position.y <= 0)
+        {
+            canjump = true;
+        }
+        if (Input.GetKey(KeyCode.Space) && canjump && gameObject.transform.position.y < 10)
+        {
+            gameObject.transform.Translate(0, 50f * Time.deltaTime, 0);
+        }
+        else
+        {
+            canjump = false;
+            if (gameObject.transform.position.y > 0)
+            {
+                gameObject.transform.Translate(0, -50f * Time.deltaTime, 0);
+            }
+        }
+
     }
 }
+    
