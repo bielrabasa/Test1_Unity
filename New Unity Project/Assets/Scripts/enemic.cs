@@ -13,6 +13,9 @@ public class enemic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.M))
+        {
+            gameObject.transform.Translate(0, 10f * Time.deltaTime, 0);
+        }
     }
 }
