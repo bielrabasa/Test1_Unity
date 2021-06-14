@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
         {
             gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
         }
+        if (Input.GetKey("c"))
+        {
+            gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
+        }
         ManageJump();
     }
     void ManageJump()
@@ -48,7 +52,6 @@ public class Player : MonoBehaviour
                 gameObject.transform.Translate(0, -50f * Time.deltaTime, 0);
             }
         }
-
     }
 }
     
