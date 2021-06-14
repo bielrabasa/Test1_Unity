@@ -16,41 +16,37 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Start is called before the first frame update
+        if (Input.GetKey(KeyCode.A))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200f * Time.deltaTime, 0));
+            gameObject.GetComponent<Animator>().SetBool("moving", true);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(200f * Time.deltaTime, 0));
+            gameObject.GetComponent<Animator>().SetBool("moving", true);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
+        }
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            gameObject.GetComponent<Animator>().SetBool("moving", false);
 
-        // Update is called once per frame
-
-        if (Input.GetKey("a"))
-        {
-            gameObject.transform.Translate(-50f * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey("d"))
-        {
-            gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
-        }
-        if (Input.GetKey("c"))
-        {
-            gameObject.transform.Translate(50f * Time.deltaTime, 0, 0);
-        }
-        ManageJump();
-    }
-    void ManageJump()
-    {
-        if (gameObject.transform.position.y <= 0)
-        {
-            canjump = true;
-        }
-        if (Input.GetKey(KeyCode.Space) && canjump && gameObject.transform.position.y < 10)
-        {
-            gameObject.transform.Translate(0, 50f * Time.deltaTime, 0);
-        }
-        else
+        if (Input.GetKey(KeyCode.Space) && canjump)
         {
             canjump = false;
-            if (gameObject.transform.position.y > 0)
-            {
-                gameObject.transform.Translate(0, -50f * Time.deltaTime, 0);
-            }
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 40f));
+        }
+
+        // Update is called once per frame
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "ground")
+        {
+            canjump = true;
         }
     }
 }
