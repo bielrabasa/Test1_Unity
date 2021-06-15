@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class coincontroller : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        ScoreManager.scoreManager.RaiseScore(1);
+        Destroy(transform.parent.gameObject);
     }
 
 
