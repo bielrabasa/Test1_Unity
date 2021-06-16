@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
         {
             timer = 0;
             float x = Random.Range(-2f, 2f);
-            Vector3 position = new Vector3(x, 0, 0);
+            Vector3 position = new Vector3(x, 1, 0);
             Quaternion rotation = new Quaternion();
             Instantiate(Enemy1Prefab, position, rotation);
 
