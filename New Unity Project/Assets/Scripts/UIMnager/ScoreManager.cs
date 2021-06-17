@@ -21,11 +21,11 @@ public class ScoreManager : MonoBehaviour
             Destroy(this);
         }
     }
-    private void Update()
+    void Update()
     {
-        if (scoreText == null)
+        if (scoreText == null)//Todo el if entero se usa para pasar la puntuacion de una escena a otra.
         {
-            scoreText = GameObject.Find("Text").GetComponent<Text>();
+            scoreText = GameObject.Find("Text").GetComponent<Text>();//Todo el problema del GameObject.Find es por poner la g en minuscula, si quieres usar el .Find usa G mayuscula.
             scoreText.text = score + "";
         }
     }
@@ -37,6 +37,10 @@ public class ScoreManager : MonoBehaviour
         if(score== 3)
         {
             SceneManager.LoadScene("Scene2");
+        }
+        if (score == 20)
+        {
+            SceneManager.LoadScene("SceneWin");
         }
     }
 }
