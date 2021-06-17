@@ -19,8 +19,8 @@ public class EnemySpawner : MonoBehaviour
         if (timer >= 2f)
         {
             timer = 0;
-            float x = Random.Range(-2f, 2f);
-            Vector3 position = new Vector3(x, 1, 0);
+            float x = Random.Range(-17f, 17f);
+            Vector3 position = new Vector3(x, 12, 0);
             Quaternion rotation = new Quaternion();
             Instantiate(Enemy1Prefab, position, rotation);
 

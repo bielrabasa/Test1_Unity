@@ -19,7 +19,7 @@ public class CoinSpawner : MonoBehaviour
         if (timer >= 2f)
         {
             timer = 0;
-            float x = Random.Range(-2.8f, 0.4f);
+            float x = Random.Range(-17f, 17f);
             Vector3 position = new Vector3(x, 0, 0);
             Quaternion rotation = new Quaternion();
             Instantiate(coinPrefab,position,rotation);
