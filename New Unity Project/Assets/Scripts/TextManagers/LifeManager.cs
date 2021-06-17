@@ -22,4 +22,16 @@ public class LifeManager : MonoBehaviour
         Debug.Log(life);
         lifeText.text = life + "";
     }
+    public bool Life1()
+    {
+        if (life <= 0)
+        {
+            return true;
+
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

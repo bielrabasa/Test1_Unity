@@ -41,9 +41,9 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 40f));//Para saltar usando el mismo procedimiento que en el movimiento lateral pero en este caso moviendo el eje y.
         }
 
-        if (life == 0)//Es usado para destruir el personaje una vez se muere y no tener memoryleaks
+        if (LifeManager.lifeManager.Life1())//Es usado para destruir el personaje una vez se muere y no tener memoryleaks
         {
-            Destroy(transform.gameObject);
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,8 +54,9 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy1")
         {
+           /* Debug.Log(life);
             life -= 1;
-            LifeManager.lifeManager.RaiseLife(1);
+            LifeManager.lifeManager.RaiseLife(1);*/
         }
 
     }

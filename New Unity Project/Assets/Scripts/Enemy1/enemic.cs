@@ -17,7 +17,9 @@ public class enemic : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player")
         {
+            Debug.Log("A");
             Destroy(transform.parent.gameObject);
+            LifeManager.lifeManager.RaiseLife(1);
         }
     }
 }
