@@ -7,7 +7,7 @@ public class enemic : MonoBehaviour
     // Start is called before the first frame update
      void Update()
     {
-       gameObject.transform.parent.Translate(0, -1f * Time.deltaTime, 0);
+       gameObject.transform.parent.Translate(0, -5f * Time.deltaTime, 0);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
