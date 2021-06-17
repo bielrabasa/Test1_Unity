@@ -20,7 +20,6 @@ public class PointController : MonoBehaviour
             ScoreManager.scoreManager.RaiseScore(1);
             Debug.Log("E");
             Destroy(transform.parent.gameObject);
-
         }
     }
 }

@@ -7,8 +7,11 @@ public class coincontroller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreManager.scoreManager.RaiseScore(1);
-        Destroy(transform.parent.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            ScoreManager.scoreManager.RaiseScore(1);
+            Destroy(transform.parent.gameObject);
+        }
     }
 
 
