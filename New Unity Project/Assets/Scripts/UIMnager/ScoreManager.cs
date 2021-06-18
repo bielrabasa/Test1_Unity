@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
         {
             SceneManager.LoadScene("Scene2");
         }
-        if (score == 20)
+        if (score == 20)//Funciona mal y te manda a una escena diferente pero aparece la puntuacion en pantalla en vez del texto predefinido.
         {
             SceneManager.LoadScene("SceneWin");
         }

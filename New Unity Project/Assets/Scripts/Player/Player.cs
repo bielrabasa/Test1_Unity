@@ -15,6 +15,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.position.x == 20)//No va aun. Es para probar como hacer posicionamiento de objetos basado en el posicionamiento de otro.
+        {
+            Debug.Log("L");
+        }
+        if (GameObject.Find("Player").transform.position.x == 0)//Es posible que esta parte de codigo funcione a la hora de poder hacer que el disparo del personaje salga siempre desde la posicion x"en este caso" del personaje. Util tb para usar en disparos de enmigos o spawnear cosas a una distancia en concreto del Player o de cualquier otro objeto
+        {
+            Debug.Log("j");
+        }
         // Start is called before the first frame update
         if (Input.GetKey(KeyCode.A))
         {
@@ -40,14 +48,14 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300f));//Para saltar usando el mismo procedimiento que en el movimiento lateral pero en este caso moviendo el eje y.
         }
 
-        if (LifeManager.lifeManager.Life1())//Es usado para destruir el personaje una vez se muere y no tener memoryleaks
+        if (LifeManager.lifeManager.Life1())//Es usado para destruir el personaje una vez se muere y no tener memoria acumulatiba.
         {
             Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "ground")
+        if (collision.transform.tag == "ground")//Va bien para detectar contra que esta colisionando y poder hacer diferentes funciones a partir de eso.
         {
             canjump = true;
         }
